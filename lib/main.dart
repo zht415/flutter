@@ -17,7 +17,7 @@ class App extends StatelessWidget{
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
       home: Home(),
       theme: ThemeData( //设置主题色
-        primarySwatch: Colors.red
+        primarySwatch: Colors.pink
       ),
     );
   }
@@ -47,6 +47,10 @@ class Home extends StatelessWidget{
           ],
           elevation: 1.0,
           bottom: TabBar(//设置tabBar
+            unselectedLabelColor: Colors.black38,//未选中是颜色
+            indicatorColor: Colors.blue,//选择时底部的线
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 2.0,
             tabs: <Widget>[ //
               Tab(icon: Icon(Icons.local_florist)),
               Tab(icon: Icon(Icons.change_history)),
