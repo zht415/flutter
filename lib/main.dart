@@ -17,7 +17,9 @@ class App extends StatelessWidget{
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
       home: Home(),
       theme: ThemeData( //设置主题色
-        primarySwatch: Colors.pink
+        primarySwatch: Colors.pink,
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),//选中时高亮颜色
+        splashColor: Colors.white70 
       ),
     );
   }
