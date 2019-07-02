@@ -22,6 +22,7 @@ class App extends StatelessWidget{
 
 class Home extends StatelessWidget{
 
+//设置每个单元格内的内容 类似于cell
   Widget _listItemBuilder(BuildContext context,int index){
     // return Text(posts[index].title);
     return Container(
@@ -47,7 +48,7 @@ class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
+    return Scaffold( //顶部工具栏、标签栏
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
           title: Text('朴水'),
