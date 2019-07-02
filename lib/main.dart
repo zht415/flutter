@@ -27,7 +27,9 @@ class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold( //顶部工具栏、标签栏
+    return  DefaultTabController(
+      length: 3,
+      child: Scaffold( //顶部工具栏、标签栏
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
           leading: IconButton( //顶部左图标（类似于leftBarButton）
@@ -44,9 +46,23 @@ class Home extends StatelessWidget{
             )
           ],
           elevation: 1.0,
+          bottom: TabBar(//设置tabBar
+            tabs: <Widget>[ //
+              Tab(icon: Icon(Icons.local_florist)),
+              Tab(icon: Icon(Icons.change_history)),
+              Tab(icon: Icon(Icons.directions_bike)),
+            ],
+          ),
         ),
-        body: null,//ListViewDemo(),
-      );
+        body: TabBarView(
+          children: <Widget>[
+            Icon(Icons.local_florist,size:128.0,color:Colors.black12),
+            Icon(Icons.change_history,size:128.0,color:Colors.black12),
+            Icon(Icons.directions_bike,size:128.0,color:Colors.black12),
+          ],
+        ),//ListViewDemo(),
+      ),
+    );
   }
 }
 
