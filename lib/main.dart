@@ -34,11 +34,11 @@ class Home extends StatelessWidget{
       child: Scaffold( //顶部工具栏、标签栏
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-          leading: IconButton( //顶部左图标（类似于leftBarButton）
-            icon: Icon(Icons.menu),//添加图标
-            tooltip: 'Navigration',
-            onPressed: ()=>debugPrint('Navigation button is Pressed.'),//添加点击行为
-          ),
+          // leading: IconButton( //顶部左图标（类似于leftBarButton）
+          //   icon: Icon(Icons.menu),//添加图标
+          //   tooltip: 'Navigration',
+          //   onPressed: ()=>debugPrint('Navigation button is Pressed.'),//添加点击行为
+          // ),
           title: Text('朴水'),
           actions: <Widget>[
             IconButton(
@@ -81,16 +81,22 @@ class Home extends StatelessWidget{
                 title: Text('Message',textAlign:TextAlign.right),
                 //在标题尾部添加图标
                 trailing: Icon(Icons.message,color:Colors.cyan,size:22.0),
+                //关闭抽屉
+                onTap: ()=>Navigator.pop(context),
               ),
               ListTile(//设置标题
                 title: Text('Favorite',textAlign:TextAlign.right),
                 //在标题尾部添加图标
                 trailing: Icon(Icons.favorite,color:Colors.red,size:22.0),
+                //关闭抽屉
+                onTap: ()=>Navigator.pop(context),
               ),
               ListTile(//设置标题
                 title: Text('Settings',textAlign:TextAlign.right),
                 //在标题尾部添加图标
                 trailing: Icon(Icons.settings,color:Colors.brown,size:22.0),
+                //关闭抽屉
+                onTap: ()=>Navigator.pop(context),
               ),
             ],
           ),
