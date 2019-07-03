@@ -6,7 +6,19 @@ class BasicDemo extends StatelessWidget{
   Widget build(BuildContext context) {
     
     return Container(
-      color: Colors.grey[100],
+      // color: Colors.grey[100],
+      //设置背景图像 此时不能设置背影color 即不能使用上面方法
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage('https://resources.ninghao.org/images/say-hello-to-barry.jpg'),
+          alignment: Alignment.topCenter,
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(//颜色滤镜
+            Colors.indigoAccent[400].withOpacity(0.5), 
+            BlendMode.hardLight
+            ),
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,//设置主轴居中
         children: <Widget>[
