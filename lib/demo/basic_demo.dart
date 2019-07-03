@@ -25,11 +25,19 @@ class BasicDemo extends StatelessWidget{
                 style: BorderStyle.solid,
               ),
               //添加圆角
-              // borderRadius: BorderRadius.circular(15.0)
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50),
-                bottomLeft: Radius.circular(30),
-              ),
+              borderRadius: BorderRadius.circular(15.0),
+              // borderRadius: BorderRadius.only(
+              //   topLeft: Radius.circular(50),
+              //   bottomLeft: Radius.circular(30),
+              // ),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(6.0, 7.0),
+                  color: Color.fromRGBO(16, 20, 188, 1.0),
+                  blurRadius: 20.0,//模糊程度
+                  spreadRadius: -25.0//阴影扩散的程度
+                ),
+              ],
             ),
           ),
         ],
