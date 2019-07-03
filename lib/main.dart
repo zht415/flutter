@@ -71,11 +71,26 @@ class Home extends StatelessWidget{
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
+              //自定义Header
               UserAccountsDrawerHeader(
                 accountName: Text('朴水',style: TextStyle(fontWeight: FontWeight.bold),),
                 accountEmail: Text('846877359@qq.com'),
+                //用户头像
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage('https://resources.ninghao.org/images/wanghao.jpg'),
+                ),
+                //修改背影颜色、图像
+                decoration: BoxDecoration(
+                  color: Colors.purple[400],
+                  image: DecorationImage(
+                    image: NetworkImage('https://resources.ninghao.org/images/childhood-in-a-picture.jpg'),
+                    fit: BoxFit.cover,
+                    //混合模式
+                    colorFilter: ColorFilter.mode(
+                      Colors.purple[400].withOpacity(0.6), 
+                      BlendMode.hardLight
+                      )
+                  )
                 ),
               ),
               ListTile(//设置标题
