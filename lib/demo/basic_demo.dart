@@ -18,18 +18,17 @@ class BasicDemo extends StatelessWidget{
             width: 90.0,
             height: 90.0,
             decoration: BoxDecoration(//装饰
-              color: Color.fromRGBO(4, 43, 250, 1.0),//此时外面color需注释掉，否则会报错
-              border: Border(//边框
-                top: BorderSide(//上边框
-                  color: Colors.indigoAccent[100],
-                  width: 3.0,
-                  style: BorderStyle.solid,
-                ),
-                bottom: BorderSide(//上边框
-                  color: Colors.red[100],
-                  width: 3.0,
-                  style: BorderStyle.solid,
-                ),
+              color: Color.fromRGBO(3, 54, 255, 1.0),//此时外面color需注释掉，否则会报错
+              border: Border.all(//边框
+                color: Colors.indigoAccent[100],
+                width: 3.0,
+                style: BorderStyle.solid,
+              ),
+              //添加圆角
+              // borderRadius: BorderRadius.circular(15.0)
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50),
+                bottomLeft: Radius.circular(30),
               ),
             ),
           ),
