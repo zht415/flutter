@@ -69,9 +69,32 @@ class Home extends StatelessWidget{
           ],
         ),//ListViewDemo(),
         drawer: DrawerDemo(),
+        //底部导航栏
+        bottomNavigationBar: BottomNavigationBar(
+         type: BottomNavigationBarType.fixed,
+         fixedColor: Colors.black,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              title: Text('Explore'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.history),
+              title: Text('history'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              title: Text('List'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text('My'),
+            ),
+          ],
+        ),
         // endDrawer: Text('This is right drawer'),//右边抽屉
       ),
-    );
+    ); 
   }
 }
 
