@@ -11,7 +11,7 @@ class BasicDemo extends StatelessWidget{
         children: <Widget>[
           Container(
             child: Icon(Icons.pool,size:32.0,color:Colors.white),
-            color: Color.fromRGBO(3, 33, 250, 1.0),
+            color: Color.fromRGBO(13, 133, 250, 1.0),
             padding: EdgeInsets.all(16.0),//内边距
             margin: EdgeInsets.all(8.0),//外边距
             width: 90.0,
