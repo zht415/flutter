@@ -3,7 +3,7 @@ import './model/post.dart';
 import './demo/listView_demo.dart';
 import './demo/hello_demo.dart';
 import './demo/draw_demo.dart';
-
+import './demo/bottom_navigation_bar_demo.dart';
 // void main(){
 //   runApp(App());
 // }
@@ -27,6 +27,7 @@ class App extends StatelessWidget{
 }
 
 class Home extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
     
@@ -63,35 +64,15 @@ class Home extends StatelessWidget{
         ),
         body: TabBarView(
           children: <Widget>[
-            Icon(Icons.local_florist,size:128.0,color:Colors.black12),
+            ListViewDemo(),
+            // Icon(Icons.local_florist,size:128.0,color:Colors.black12),
             Icon(Icons.change_history,size:128.0,color:Colors.black12),
             Icon(Icons.directions_bike,size:128.0,color:Colors.black12),
           ],
         ),//ListViewDemo(),
         drawer: DrawerDemo(),
         //底部导航栏
-        bottomNavigationBar: BottomNavigationBar(
-         type: BottomNavigationBarType.fixed,
-         fixedColor: Colors.black,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
-              title: Text('Explore'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              title: Text('history'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              title: Text('List'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              title: Text('My'),
-            ),
-          ],
-        ),
+        bottomNavigationBar: BottomNavigationBarDemo(),
         // endDrawer: Text('This is right drawer'),//右边抽屉
       ),
     ); 
