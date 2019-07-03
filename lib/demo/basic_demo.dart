@@ -25,7 +25,7 @@ class BasicDemo extends StatelessWidget{
                 style: BorderStyle.solid,
               ),
               //添加圆角
-              borderRadius: BorderRadius.circular(15.0),
+              // borderRadius: BorderRadius.circular(15.0),
               // borderRadius: BorderRadius.only(
               //   topLeft: Radius.circular(50),
               //   bottomLeft: Radius.circular(30),
@@ -38,6 +38,7 @@ class BasicDemo extends StatelessWidget{
                   spreadRadius: -25.0//阴影扩散的程度
                 ),
               ],
+              shape: BoxShape.circle,//形状 此时不可以使用borderRadius
             ),
           ),
         ],
