@@ -9,13 +9,39 @@ class BasicDemo extends StatelessWidget{
   final String _author = '李白';
   final String _title = '登金陵凤凰台';
   @override
+
+  //一般字体的设置
+  // Widget build(BuildContext context) {
+  //   return Text(
+  //     '《$_title》--$_author。 凤凰台上凤凰游，凤去台空江自流。吴宫花草埋幽径，晋代衣冠成古丘。三山半落青天外，二水中分白鹭洲。总为浮云能蔽日，长安不见使人愁.',
+  //     textAlign: TextAlign.left,
+  //     style: _textStyle,
+  //     maxLines: 2,//最多几行
+  //     overflow: TextOverflow.ellipsis,//表示省略
+  //   ); 
+  // }
+
+  //富文本字体的设置
   Widget build(BuildContext context) {
-    return Text(
-      '《$_title》--$_author。 凤凰台上凤凰游，凤去台空江自流。吴宫花草埋幽径，晋代衣冠成古丘。三山半落青天外，二水中分白鹭洲。总为浮云能蔽日，长安不见使人愁.',
-      textAlign: TextAlign.left,
-      style: _textStyle,
-      maxLines: 2,//最多几行
-      overflow: TextOverflow.ellipsis,//表示省略
-    ); 
+    return RichText(
+      text: TextSpan(
+        text: 'This is pushui',
+        style: TextStyle(
+          color: Colors.deepPurpleAccent,
+          fontSize: 34.0,
+          fontStyle: FontStyle.italic,
+          fontWeight: FontWeight.w100,
+        ),
+        children: [
+          TextSpan(
+            text: '.Flutter',
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.green,
+            ),
+          ),
+        ]
+      ),
+    );
   }
 }
