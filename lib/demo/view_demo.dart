@@ -3,7 +3,38 @@ import 'package:flutter/widgets.dart';
 import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return GridViewExtentDemo();
+  }  
+}
+class GridViewExtentDemo extends StatelessWidget{
+  List<Widget>_buildTiles(int length){
+    return List.generate(length, (int index){
+      return Container(
+          color: Colors.cyan[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'Item $index',
+            style:TextStyle(fontSize: 18.0,color:Colors.blue)
+          ),
+        );
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    
+    return GridView.extent(//风格视图
+      maxCrossAxisExtent: 150,
+      crossAxisSpacing: 16.0,
+      mainAxisSpacing: 16.0,
+      // scrollDirection: Axis.horizontal,
+      children: _buildTiles(100),
+    );
+  }
+}
 
+class GridViewDemo extends StatelessWidget{
   List<Widget>_buildTiles(int length){
     return List.generate(length, (int index){
       return Container(
@@ -28,7 +59,6 @@ class ViewDemo extends StatelessWidget{
     );
   }
 }
-
 class PageViewBuilderDemo extends StatelessWidget{
   Widget _pageItemBuilder(BuildContext context,int index){
     return Stack(
