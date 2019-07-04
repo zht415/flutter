@@ -8,13 +8,23 @@ class LayoutDemo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          //设置宽高比
-          AspectRatio(
-            aspectRatio: 16.0/9.0,
+          //设置限制的Box
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: 200.0,
+              maxWidth: 300.0,
+            ),
             child: Container(
-              color: Color.fromRGBO(3, 120, 255, 1.0),
+              color: Color.fromRGBO(220, 124, 250, 1.0),
             ),
           ),
+          //设置宽高比
+          // AspectRatio(
+          //   aspectRatio: 16.0/9.0,
+          //   child: Container(
+          //     color: Color.fromRGBO(3, 120, 255, 1.0),
+          //   ),
+          // ),
         ],
       ),
     );
