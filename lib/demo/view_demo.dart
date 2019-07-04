@@ -8,8 +8,13 @@ class ViewDemo extends StatelessWidget{
     return PageView(
       // pageSnapping: false,//页面切换到一半时 是否自动弹回 默认为YES
       // reverse: true,//是否倒序显示视图
-      scrollDirection: Axis.vertical,//垂直滚动
+      scrollDirection: Axis.horizontal,//垂直滚动
       onPageChanged: (currentPage) => debugPrint('Page: $currentPage'),
+      controller: PageController(//管理显示的页面
+        initialPage: 1,
+        keepPage: false,//是否记住滚动到哪个页面
+        viewportFraction: 0.8,//占页面的比例
+      ),
       children: <Widget>[
         Container(
           color: Colors.brown[900],
