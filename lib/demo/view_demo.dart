@@ -3,7 +3,33 @@ import 'package:flutter/widgets.dart';
 import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget{
-  
+
+  List<Widget>_buildTiles(int length){
+    return List.generate(length, (int index){
+      return Container(
+          color: Colors.cyan[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'Item $index',
+            style:TextStyle(fontSize: 18.0,color:Colors.blue)
+          ),
+        );
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.count(//风格视图
+      crossAxisCount: 3,//一行显示几个
+      crossAxisSpacing: 16.0,
+      mainAxisSpacing: 16.0,
+      scrollDirection: Axis.horizontal,
+      children: _buildTiles(100),
+    );
+  }
+}
+
+class PageViewBuilderDemo extends StatelessWidget{
   Widget _pageItemBuilder(BuildContext context,int index){
     return Stack(
       children: <Widget>[
@@ -23,7 +49,7 @@ class ViewDemo extends StatelessWidget{
                 posts[index].title,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text(
+              Text( 
                 posts[index].author
               ),
             ],
@@ -40,7 +66,6 @@ class ViewDemo extends StatelessWidget{
     );
   }
 }
-
 class PageViewDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
