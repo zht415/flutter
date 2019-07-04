@@ -9,13 +9,38 @@ class LayoutDemo extends StatelessWidget{
     return Container(
       child: Column(//或设置为Row
         //主轴
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         //交叉轴
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        // crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
-          IconBadge(Icons.pool),
-          IconBadge(Icons.beach_access,size: 60,),
-          IconBadge(Icons.airplanemode_active),
+          SizedBox(
+            width: 100,
+            height: 150,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Icon(Icons.ac_unit,color:Colors.white,size:32.0),
+            ),
+          ),
+          SizedBox(//可以通过这个来设置上下间隔
+            height: 30,
+          ),
+          SizedBox(
+            width: 60,
+            height: 70,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Icon(Icons.brightness_1,color:Colors.white,size:32.0),
+            ),
+          ),
+          // IconBadge(Icons.pool),
+          // IconBadge(Icons.beach_access,size: 60,),
+          // IconBadge(Icons.airplanemode_active),
         ],
       ),
     );
