@@ -8,6 +8,7 @@ class LayoutDemo extends StatelessWidget{
 
     return Container(
       child: Column(//或设置为Row
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           IconBadge(Icons.pool),
           IconBadge(Icons.beach_access),
