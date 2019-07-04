@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ViewDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     
     return PageView(
+      // pageSnapping: false,//页面切换到一半时 是否自动弹回 默认为YES
+      // reverse: true,//是否倒序显示视图
+      scrollDirection: Axis.vertical,//垂直滚动
+      onPageChanged: (currentPage) => debugPrint('Page: $currentPage'),
       children: <Widget>[
         Container(
           color: Colors.brown[900],
