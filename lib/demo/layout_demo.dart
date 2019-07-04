@@ -8,10 +8,13 @@ class LayoutDemo extends StatelessWidget{
 
     return Container(
       child: Column(//或设置为Row
+        //主轴
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //交叉轴
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           IconBadge(Icons.pool),
-          IconBadge(Icons.beach_access),
+          IconBadge(Icons.beach_access,size: 60,),
           IconBadge(Icons.airplanemode_active),
         ],
       ),
