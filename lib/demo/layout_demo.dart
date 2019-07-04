@@ -2,7 +2,26 @@
 import 'package:flutter/material.dart';
 
 class LayoutDemo extends StatelessWidget {
-  @override
+ @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          //设置宽高比
+          AspectRatio(
+            aspectRatio: 16.0/9.0,
+            child: Container(
+              color: Color.fromRGBO(3, 120, 255, 1.0),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+class StackDemo extends StatelessWidget{
+   @override
   Widget build(BuildContext context) {
     // return IconBadge(Icons.pool);
 
@@ -77,7 +96,6 @@ class LayoutDemo extends StatelessWidget {
     // );
   }
 }
-
 class IconBadge extends StatelessWidget {
   final IconData icon;
   final double size;
