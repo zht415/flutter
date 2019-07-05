@@ -21,11 +21,12 @@ class NavigatorDemo extends StatelessWidget {
                style: TextStyle(fontSize: 20.0,color: Colors.blue),
                ),
                onPressed:(){
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                   builder: (BuildContext context)=> Page(title: 'About'),
-                 ),
-               );
+                 Navigator.pushNamed(context, '/about');
+              //   Navigator.of(context).push(
+              //     MaterialPageRoute(
+              //      builder: (BuildContext context)=> Page(title: 'About'),
+              //    ),
+              //  );
              },
            ),
           ],

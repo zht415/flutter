@@ -23,6 +23,9 @@ class App extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
       home: NavigatorDemo(),
+      routes: {
+        '/about':(context)=>Page(title: 'About'),
+      },
       // home: Home(),
       // home: SliverDemo(),
       theme: ThemeData( //设置主题色
