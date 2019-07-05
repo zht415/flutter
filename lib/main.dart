@@ -22,8 +22,11 @@ class App extends StatelessWidget{
     
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
-      home: NavigatorDemo(),
+      // home: NavigatorDemo(), 
+      //或使用以下路由
+      initialRoute: '/',//初始化一个路由
       routes: {
+        '/':(context)=>NavigatorDemo(),
         '/about':(context)=>Page(title: 'About'),
       },
       // home: Home(),
