@@ -1,7 +1,8 @@
  
 import 'package:flutter/material.dart';
+import 'package:flutter_pushui/demo/post_show.dart';
 import '../model/post.dart';
- 
+import './post_show.dart';
 
  class ListViewDemo extends StatelessWidget{
    
@@ -59,8 +60,11 @@ import '../model/post.dart';
               child: InkWell(
                 splashColor: Colors.white.withOpacity(0.3),
                 highlightColor: Colors.white.withOpacity(0.1),
-                onTap: (){
+                onTap:(){
                   debugPrint('Tap');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context)=>PostShow(post: posts[index])),
+                  );
                 },
               ),
             ),
