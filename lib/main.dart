@@ -21,8 +21,8 @@ class App extends StatelessWidget{
     
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
-      // home: Home(),
-      home: SliverDemo(),
+      home: Home(),
+      // home: SliverDemo(),
       theme: ThemeData( //设置主题色
         primarySwatch: Colors.pink,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),//选中时高亮颜色
@@ -38,7 +38,7 @@ class Home extends StatelessWidget{
   Widget build(BuildContext context) {
     
     return  DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold( //顶部工具栏、标签栏
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
@@ -66,6 +66,7 @@ class Home extends StatelessWidget{
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.directions_bike)),
               Tab(icon: Icon(Icons.view_quilt)),
+              Tab(icon: Icon(Icons.directions_bus)),
             ],
           ),
         ),
@@ -80,6 +81,7 @@ class Home extends StatelessWidget{
             LayoutDemo(),
             // Icon(Icons.directions_bike,size:128.0,color:Colors.black12),
             ViewDemo(), //视图
+            SliverDemo(),
           ],
         ),//ListViewDemo(),
         drawer: DrawerDemo(),

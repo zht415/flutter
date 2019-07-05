@@ -11,15 +11,31 @@ class SliverDemo extends StatelessWidget{
     return Scaffold(
       body:  CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
-            title: Text('朴水'),
+          SliverAppBar(//设置顶部Bar
+            // title: Text('朴水'),
             // pinned: true,//顶部是否固定
             floating: true,
+            expandedHeight: 150,//向下扩展的高度
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'PuShui Flutter'.toUpperCase(),
+                style: TextStyle(
+                  fontSize: 15.0,
+                  letterSpacing: 3.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              background: Image.network(
+                'https://resources.ninghao.net/images/overkill.png',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           SliverSafeArea(
             sliver: SliverPadding(
             padding: EdgeInsets.all(8.0),
-            sliver: SliverListDemo(),
+            // sliver: SliverListDemo(),
+            sliver: SliverGridDemo(),
             ),
           ),
         ],
