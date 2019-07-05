@@ -8,6 +8,7 @@ import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
+import './demo/navigator_demo.dart';
 
 // void main(){
 //   runApp(App());
@@ -21,7 +22,8 @@ class App extends StatelessWidget{
     
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
-      home: Home(),
+      home: NavigatorDemo(),
+      // home: Home(),
       // home: SliverDemo(),
       theme: ThemeData( //设置主题色
         primarySwatch: Colors.pink,
