@@ -24,12 +24,12 @@ class App extends StatelessWidget{
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
       // home: NavigatorDemo(), 
       //或使用以下路由
-      initialRoute: '/',//初始化一个路由
-      routes: {
-        '/':(context)=>NavigatorDemo(),
-        '/about':(context)=>Page(title: 'About'),
-      },
-      // home: Home(),
+      // initialRoute: '/',//初始化一个路由
+      // routes: {
+      //   '/':(context)=>NavigatorDemo(),
+      //   '/about':(context)=>Page(title: 'About'),
+      // },
+      home: Home(),
       // home: SliverDemo(),
       theme: ThemeData( //设置主题色
         primarySwatch: Colors.pink,
