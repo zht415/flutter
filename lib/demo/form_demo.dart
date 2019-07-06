@@ -43,9 +43,16 @@ class  RegisterFormState extends State<RegisterForm> {
   void submitRegisgerForm(){//提交数据方法
 
     if(registerFormKey.currentState.validate()){
+     
      registerFormKey.currentState.save();//保存表单中的数据
      debugPrint('submit-UserName:$userName');
      debugPrint('submit-PassWord:$passWord');
+
+     Scaffold.of(context).showSnackBar(
+       SnackBar(
+         content: Text('Registering...'),
+       )
+     );
     }else{
       setState(() {
         autovalidate = true;
