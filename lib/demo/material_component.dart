@@ -75,6 +75,44 @@ class ButtonDemo extends StatelessWidget {
         ),
       ],
     );
+    //OutLineButton 描边按钮
+    final Widget OutlineButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor:Theme.of(context).accentColor,
+            buttonTheme:ButtonThemeData(
+              textTheme:ButtonTextTheme.primary,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(10.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: OutlineButton.icon(
+            icon: Icon(Icons.add),
+            label: Text('RaisedButton'),
+            onPressed: (){},
+            splashColor: Colors.green,
+            borderSide: BorderSide(//描边按钮
+              color: Colors.grey,
+            ),
+            textColor: Colors.purple,
+            highlightedBorderColor: Colors.red,
+          ), 
+        ),
+        SizedBox(width: 16.0),
+        OutlineButton.icon(
+          icon: Icon(Icons.add),
+          label: Text('Button'),
+          onPressed: (){},
+          splashColor: Colors.green,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
@@ -86,7 +124,8 @@ class ButtonDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // FlatButtonDemo,
-            RaisedButtonDemo,
+            // RaisedButtonDemo,
+            OutlineButtonDemo,
           ],
         ),
       ),
