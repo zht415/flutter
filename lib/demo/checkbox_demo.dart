@@ -20,18 +20,30 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            CheckboxListTile(
+              value: _checkoutBoxItemA,
+              onChanged: (value){
+                setState(() {
+                  _checkoutBoxItemA = value;
+                });
+              },
+              title: Text('CheckBox Item A'),
+              subtitle: Text('Description'),
+              secondary: Icon(Icons.bookmark),
+              selected: _checkoutBoxItemA,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Checkbox(
-                  value: _checkoutBoxItemA,
-                  onChanged:(value){
-                    setState(() {
-                      _checkoutBoxItemA = value;
-                    });
-                  },
-                  activeColor: Colors.red,//勾选时的颜色
-                ),
+                // Checkbox(
+                //   value: _checkoutBoxItemA,
+                //   onChanged:(value){
+                //     setState(() {
+                //       _checkoutBoxItemA = value;
+                //     });
+                //   },
+                //   activeColor: Colors.red,//勾选时的颜色
+                // ),
               ],
             ),
           ],
