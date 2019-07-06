@@ -41,8 +41,20 @@ class  RegisterFormState extends State<RegisterForm> {
 
   void submitRegisgerForm(){//提交数据方法
     registerFormKey.currentState.save();//保存表单中的数据
+    registerFormKey.currentState.validate();
+
     debugPrint('submit-UserName:$userName');
     debugPrint('submit-PassWord:$passWord');
+  }
+  String validateUserName(value){//验证用户名
+    if(value.isEmpty){
+      return 'UserName is required';
+    }
+  }
+  String validatePassWord(value){//验证密码
+    if(value.isEmpty){
+      return 'UserName is required';
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -58,6 +70,7 @@ class  RegisterFormState extends State<RegisterForm> {
               userName = value;
               debugPrint('userName:$userName');
             },
+            validator: validateUserName,
           ),
           TextFormField(
             obscureText: true,
@@ -68,6 +81,7 @@ class  RegisterFormState extends State<RegisterForm> {
               passWord = value;
               debugPrint('passWord:$passWord');
             },
+            validator: validatePassWord,
           ),
           SizedBox(height: 32),
           Container(
