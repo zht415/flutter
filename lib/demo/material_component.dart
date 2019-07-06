@@ -44,21 +44,34 @@ class ButtonDemo extends StatelessWidget {
     final Widget RaisedButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        RaisedButton(
-          child: Text('RaisedButton'),
-          onPressed: (){},
-          splashColor: Colors.lightBlue,
-          textColor: Theme.of(context).accentColor,
-          elevation: 0.0,//设置阴影
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor:Theme.of(context).accentColor,
+            buttonTheme:ButtonThemeData(
+              textTheme:ButtonTextTheme.primary,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(10.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: RaisedButton.icon(
+            icon: Icon(Icons.add),
+            label: Text('RaisedButton'),
+            onPressed: (){},
+            splashColor: Colors.lightGreen,
+            textColor: Theme.of(context).accentColor,
+            elevation: 10.0,//设置阴影
+          ), 
         ),
         SizedBox(width: 16.0),
         RaisedButton.icon(
           icon: Icon(Icons.add),
-          label: Text('RaisedButton'),
+          label: Text('Button'),
           onPressed: (){},
-          splashColor: Colors.lightGreen,
+          splashColor: Colors.green,
+          elevation: 12.0,
           textColor: Theme.of(context).accentColor,
-          elevation: 10.0,//设置阴影
         ),
       ],
     );
