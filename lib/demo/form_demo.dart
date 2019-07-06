@@ -33,7 +33,16 @@ class TextFieldDemo extends StatefulWidget {
 class TextFieldDemoState extends State<TextFieldDemo> {
   @override
   Widget build(BuildContext context) {
-    return TextField();
+    return TextField(
+      decoration: InputDecoration(
+        icon: Icon(Icons.subject),
+        labelText: 'Title',
+        hintText: 'Enter the post title.',//默认词，类似于placeholder
+        // border: InputBorder.none, //设置边框
+        // border: OutlineInputBorder(),
+        filled: true,//设置背影颜色
+      ),
+    );
   }
 }
 
