@@ -38,13 +38,20 @@ class  RegisterFormState extends State<RegisterForm> {
 
   final registerFormKey = GlobalKey<FormState>();//数据存储的key
   String userName,passWord;
+  bool autovalidate = false;
 
   void submitRegisgerForm(){//提交数据方法
-    registerFormKey.currentState.save();//保存表单中的数据
-    registerFormKey.currentState.validate();
 
-    debugPrint('submit-UserName:$userName');
-    debugPrint('submit-PassWord:$passWord');
+    if(registerFormKey.currentState.validate()){
+     registerFormKey.currentState.save();//保存表单中的数据
+     debugPrint('submit-UserName:$userName');
+     debugPrint('submit-PassWord:$passWord');
+    }else{
+      setState(() {
+        autovalidate = true;
+      });
+    }
+   
   }
   String validateUserName(value){//验证用户名
     if(value.isEmpty){
@@ -65,23 +72,27 @@ class  RegisterFormState extends State<RegisterForm> {
           TextFormField(
             decoration: InputDecoration(
               labelText: 'UserName:',
+              helperText: '',
             ),
             onSaved: (value){
               userName = value;
               debugPrint('userName:$userName');
             },
             validator: validateUserName,
+            autovalidate: autovalidate,//自动验证开关
           ),
           TextFormField(
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'Password:',
+              helperText: '',
             ),
             onSaved: (value){
               passWord = value;
               debugPrint('passWord:$passWord');
             },
             validator: validatePassWord,
+            autovalidate: autovalidate,
           ),
           SizedBox(height: 32),
           Container(
