@@ -1,3 +1,4 @@
+// Shift  +  Alt  + F     实现代码的对齐；
 import 'package:flutter/material.dart';
 import './model/post.dart';
 import './demo/listView_demo.dart';
