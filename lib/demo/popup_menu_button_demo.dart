@@ -7,7 +7,7 @@ class PopupMenuButtonDemo extends StatefulWidget {
 
 class _PopupMenuButtonDemoState extends State<PopupMenuButtonDemo> {
 
-  String _currentMenuItem = 'Home'
+  String _currentMenuItem = 'Home';
 
   @override
   Widget build(BuildContext context) {
