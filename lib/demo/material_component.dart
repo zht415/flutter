@@ -1,4 +1,6 @@
 //按钮
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class MaterialComponents extends StatelessWidget {
@@ -11,34 +13,36 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          ListItem(title: 'Button',page: ButtonDemo()),
-          ListItem(title: 'FloatingActionButton',page: FloatingActionButtonDemo()),
+          ListItem(title: 'Button', page: ButtonDemo()),
+          ListItem(
+              title: 'FloatingActionButton', page: FloatingActionButtonDemo()),
         ],
       ),
     );
   }
-} 
+}
+
 class ButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //FlatButton
     final Widget FlatButtonDemo = Row(
-       mainAxisAlignment:MainAxisAlignment.center,
-       children: <Widget>[
-          FlatButton(
-            child: Text('Button'),
-            onPressed: (){},
-            splashColor: Colors.purple,
-            textColor: Theme.of(context).accentColor,
-          ),
-          FlatButton.icon(
-            icon: Icon(Icons.add),
-            label: Text('Button'),
-            onPressed: (){},
-            splashColor: Colors.grey,
-            textColor: Theme.of(context).accentColor,
-          ),
-       ],
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        FlatButton(
+          child: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.purple,
+          textColor: Theme.of(context).accentColor,
+        ),
+        FlatButton.icon(
+          icon: Icon(Icons.add),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
     );
     //RaisedButton
     final Widget RaisedButtonDemo = Row(
@@ -46,9 +50,9 @@ class ButtonDemo extends StatelessWidget {
       children: <Widget>[
         Theme(
           data: Theme.of(context).copyWith(
-            buttonColor:Theme.of(context).accentColor,
-            buttonTheme:ButtonThemeData(
-              textTheme:ButtonTextTheme.primary,
+            buttonColor: Theme.of(context).accentColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
               // shape: BeveledRectangleBorder(
               //   borderRadius: BorderRadius.circular(10.0),
               // ),
@@ -58,17 +62,17 @@ class ButtonDemo extends StatelessWidget {
           child: RaisedButton.icon(
             icon: Icon(Icons.add),
             label: Text('RaisedButton'),
-            onPressed: (){},
+            onPressed: () {},
             splashColor: Colors.lightGreen,
             textColor: Theme.of(context).accentColor,
-            elevation: 10.0,//设置阴影
-          ), 
+            elevation: 10.0, //设置阴影
+          ),
         ),
         SizedBox(width: 16.0),
         RaisedButton.icon(
           icon: Icon(Icons.add),
           label: Text('Button'),
-          onPressed: (){},
+          onPressed: () {},
           splashColor: Colors.green,
           elevation: 12.0,
           textColor: Theme.of(context).accentColor,
@@ -81,9 +85,9 @@ class ButtonDemo extends StatelessWidget {
       children: <Widget>[
         Theme(
           data: Theme.of(context).copyWith(
-            buttonColor:Theme.of(context).accentColor,
-            buttonTheme:ButtonThemeData(
-              textTheme:ButtonTextTheme.primary,
+            buttonColor: Theme.of(context).accentColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
               // shape: BeveledRectangleBorder(
               //   borderRadius: BorderRadius.circular(10.0),
               // ),
@@ -93,52 +97,53 @@ class ButtonDemo extends StatelessWidget {
           child: OutlineButton.icon(
             icon: Icon(Icons.add),
             label: Text('RaisedButton'),
-            onPressed: (){},
+            onPressed: () {},
             splashColor: Colors.green,
-            borderSide: BorderSide(//描边按钮
+            borderSide: BorderSide(
+              //描边按钮
               color: Colors.grey,
             ),
             textColor: Colors.purple,
             highlightedBorderColor: Colors.red,
-          ), 
+          ),
         ),
         SizedBox(width: 16.0),
         OutlineButton.icon(
           icon: Icon(Icons.add),
           label: Text('Button'),
-          onPressed: (){},
+          onPressed: () {},
           splashColor: Colors.green,
           textColor: Theme.of(context).accentColor,
         ),
       ],
     );
-    //ContainerButton 容器按钮
+    //FixedWidthButton 容器按钮
     final Widget FixedWidthButtonDemo = Row(
-           mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: 160,
-                child: OutlineButton(
-                child: Text('Button'),
-                onPressed: (){},
-                splashColor: Colors.grey[100],
-                borderSide: BorderSide(
-                  color: Colors.black,
-                ),
-                textColor: Colors.black,
-                highlightedBorderColor: Colors.greenAccent,
-               ),
-              ),
-            ],
-     );
-     
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: 160,
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[100],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor: Colors.black,
+            highlightedBorderColor: Colors.greenAccent,
+          ),
+        ),
+      ],
+    );
+    //ExpandedButton
     final ExpandedButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Expanded(
           child: OutlineButton(
             child: Text('Button'),
-            onPressed: (){},
+            onPressed: () {},
             splashColor: Colors.brown,
             borderSide: BorderSide(
               color: Colors.black,
@@ -149,10 +154,10 @@ class ButtonDemo extends StatelessWidget {
         ),
         SizedBox(width: 16.0),
         Expanded(
-          flex: 2,
+          flex: 2, //相对第一个所占的比例
           child: OutlineButton(
             child: Text('Button-2'),
-            onPressed: (){},
+            onPressed: () {},
             splashColor: Colors.brown,
             borderSide: BorderSide(
               color: Colors.lightBlue,
@@ -161,7 +166,43 @@ class ButtonDemo extends StatelessWidget {
             highlightedBorderColor: Colors.green,
           ),
         ),
-
+      ],
+    );
+    //ButtonBarButtonn
+    final ButtonBarButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonTheme: ButtonThemeData(
+              padding: EdgeInsets.symmetric(horizontal: 32.0),
+            ),
+          ),
+          child: ButtonBar(
+            children: <Widget>[
+              OutlineButton(
+                child: Text('ButtonBar'),
+                onPressed: () {},
+                splashColor: Colors.greenAccent[100],
+                borderSide: BorderSide(
+                  color: Colors.blue,
+                ),
+                textColor: Colors.pink,
+                highlightedBorderColor: Colors.red,
+              ),
+              OutlineButton(
+                child: Text('ButtonBar~'),
+                onPressed: () {},
+                splashColor: Colors.greenAccent[100],
+                borderSide: BorderSide(
+                  color: Colors.purple,
+                ),
+                textColor: Colors.pink,
+                highlightedBorderColor: Colors.red,
+              ),
+            ],
+          ),
+        ),
       ],
     );
     return Scaffold(
@@ -178,13 +219,15 @@ class ButtonDemo extends StatelessWidget {
             // RaisedButtonDemo,
             // OutlineButtonDemo,
             // FixedWidthButtonDemo,
-            ExpandedButtonDemo,
+            // ExpandedButtonDemo,
+            ButtonBarButtonDemo,
           ],
         ),
       ),
     );
   }
 }
+
 class _WidgetDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -199,10 +242,8 @@ class _WidgetDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Row(
-              mainAxisAlignment:MainAxisAlignment.center,
-              children: <Widget>[
-
-              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[],
             ),
           ],
         ),
@@ -210,14 +251,14 @@ class _WidgetDemo extends StatelessWidget {
     );
   }
 }
+
 //悬浮按钮
 class FloatingActionButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-  
     //悬浮按钮
     final Widget _floatingActionButton = FloatingActionButton(
-      onPressed: (){},
+      onPressed: () {},
       child: Icon(Icons.add),
       elevation: 0.0,
       backgroundColor: Colors.red,
@@ -226,8 +267,8 @@ class FloatingActionButtonDemo extends StatelessWidget {
       // ),
     );
 
-     final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
-      onPressed: (){},
+    final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
+      onPressed: () {},
       icon: Icon(Icons.add),
       label: Text('Add'),
     );
@@ -240,7 +281,8 @@ class FloatingActionButtonDemo extends StatelessWidget {
       floatingActionButton: _floatingActionButton,
       // floatingActionButton: _floatingActionButtonExtended,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      bottomNavigationBar: BottomAppBar(//底部悬浮按钮
+      bottomNavigationBar: BottomAppBar(
+        //底部悬浮按钮
         child: Container(
           height: 90,
         ),
@@ -249,8 +291,8 @@ class FloatingActionButtonDemo extends StatelessWidget {
     );
   }
 }
-class ListItem extends StatelessWidget {
 
+class ListItem extends StatelessWidget {
   final String title;
   final Widget page; //按住列表 需要打开的页面
 
@@ -262,9 +304,9 @@ class ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(title),
-      onTap: (){
+      onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context)=>page),
+          MaterialPageRoute(builder: (context) => page),
         );
       },
     );
