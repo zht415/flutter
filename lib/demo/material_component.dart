@@ -112,7 +112,26 @@ class ButtonDemo extends StatelessWidget {
         ),
       ],
     );
-
+    //ContainerButton 容器按钮
+    final Widget FixedWidthButtonDemo = Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 160,
+                child: OutlineButton(
+                child: Text('Button'),
+                onPressed: (){},
+                splashColor: Colors.grey[100],
+                borderSide: BorderSide(
+                  color: Colors.black,
+                ),
+                textColor: Colors.black,
+                highlightedBorderColor: Colors.greenAccent,
+               ),
+              ),
+            ],
+     );
+     
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
@@ -125,7 +144,8 @@ class ButtonDemo extends StatelessWidget {
           children: <Widget>[
             // FlatButtonDemo,
             // RaisedButtonDemo,
-            OutlineButtonDemo,
+            // OutlineButtonDemo,
+            FixedWidthButtonDemo,
           ],
         ),
       ),
