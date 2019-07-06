@@ -48,7 +48,7 @@ class  RegisterFormState extends State<RegisterForm> {
      debugPrint('submit-UserName:$userName');
      debugPrint('submit-PassWord:$passWord');
 
-     Scaffold.of(context).showSnackBar(
+     Scaffold.of(context).showSnackBar(//底部显示提示
        SnackBar(
          content: Text('Registering...'),
        )
