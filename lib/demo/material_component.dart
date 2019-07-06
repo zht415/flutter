@@ -11,12 +11,24 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'Button',page: ButtonDemo()),
           ListItem(title: 'FloatingActionButton',page: FloatingActionButtonDemo()),
         ],
       ),
     );
   }
 } 
+class ButtonDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ButtonDemo'),
+        elevation: 0.0,
+      ),
+    );
+  }
+}
 //悬浮按钮
 class FloatingActionButtonDemo extends StatelessWidget {
   @override
@@ -38,6 +50,7 @@ class FloatingActionButtonDemo extends StatelessWidget {
       icon: Icon(Icons.add),
       label: Text('Add'),
     );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('FloatingActionButtonDemo'),
@@ -46,7 +59,7 @@ class FloatingActionButtonDemo extends StatelessWidget {
       floatingActionButton: _floatingActionButton,
       // floatingActionButton: _floatingActionButtonExtended,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: BottomAppBar(//底部悬浮按钮
         child: Container(
           height: 90,
         ),
