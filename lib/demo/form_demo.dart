@@ -31,13 +31,32 @@ class TextFieldDemo extends StatefulWidget {
 }
 
 class TextFieldDemoState extends State<TextFieldDemo> {
+  
+  final textEditingController = TextEditingController(); //文本编辑控制器
+
+  @override
+  void dispose(){//管理编辑控制器对象 
+    textEditingController.dispose();
+    super.dispose();
+  }
+  @override
+  void initState(){//设置初始值 
+    super.initState();
+    // textEditingController.text = 'hi,pushui';
+    textEditingController.addListener(
+      (){
+        debugPrint('input:${textEditingController.text}');
+      }
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged: (value){//监听文本框值的变化 
-        debugPrint('input:$value');
-      },
-      onSubmitted: (value){
+      controller: textEditingController,
+      // onChanged: (value){//监听文本框值的变化 
+      //   debugPrint('input:$value');
+      // },
+      onSubmitted: (value){//点击done/完成时执行
         debugPrint('submit:$value');
       },
       decoration: InputDecoration(
