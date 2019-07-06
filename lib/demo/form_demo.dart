@@ -15,7 +15,8 @@ class FormDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFieldDemo(),
+              // TextFieldDemo(),
+              RegisterForm(),
             ],
           ),
         ),
@@ -25,11 +26,53 @@ class FormDemo extends StatelessWidget {
 }
 
 
+
+
+//注册
+class RegisterForm extends StatefulWidget {
+  @override
+  RegisterFormState createState() => RegisterFormState();
+}
+
+class  RegisterFormState extends State<RegisterForm> {
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: <Widget>[
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'UserName:',
+            ),
+          ),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'Password:',
+            ),
+          ),
+          SizedBox(height: 32),
+          Container(
+            width: double.infinity,
+            child: RaisedButton(//提交按钮
+              color: Theme.of(context).accentColor,
+              child: Text('Register',style:TextStyle(color:Colors.white)),
+              elevation: 0.0,
+              onPressed: (){
+
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class TextFieldDemo extends StatefulWidget {
   
   TextFieldDemoState createState() => TextFieldDemoState();
 }
-
 class TextFieldDemoState extends State<TextFieldDemo> {
   
   final textEditingController = TextEditingController(); //文本编辑控制器
