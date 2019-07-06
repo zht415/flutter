@@ -30,13 +30,14 @@ class App extends StatelessWidget{
         '/':(context)=>NavigatorDemo(),
         '/about':(context)=>Page(title: 'About'),
         '/form':(context)=>FormDemo(),
-      },
+      }, 
       // home: Home(),
       // home: SliverDemo(),
       theme: ThemeData( //设置主题色
         primarySwatch: Colors.pink,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),//选中时高亮颜色
-        splashColor: Colors.white70 
+        splashColor: Colors.white70,
+        accentColor: Color.fromRGBO(14, 14, 255, 1.0), 
       ),
     );
   }
