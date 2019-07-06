@@ -132,6 +132,38 @@ class ButtonDemo extends StatelessWidget {
             ],
      );
      
+    final ExpandedButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: (){},
+            splashColor: Colors.brown,
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor: Colors.pink,
+            highlightedBorderColor: Colors.green,
+          ),
+        ),
+        SizedBox(width: 16.0),
+        Expanded(
+          flex: 2,
+          child: OutlineButton(
+            child: Text('Button-2'),
+            onPressed: (){},
+            splashColor: Colors.brown,
+            borderSide: BorderSide(
+              color: Colors.lightBlue,
+            ),
+            textColor: Colors.blue,
+            highlightedBorderColor: Colors.green,
+          ),
+        ),
+
+      ],
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
@@ -145,7 +177,8 @@ class ButtonDemo extends StatelessWidget {
             // FlatButtonDemo,
             // RaisedButtonDemo,
             // OutlineButtonDemo,
-            FixedWidthButtonDemo,
+            // FixedWidthButtonDemo,
+            ExpandedButtonDemo,
           ],
         ),
       ),
