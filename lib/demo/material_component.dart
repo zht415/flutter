@@ -16,21 +16,21 @@ class MaterialComponents extends StatelessWidget {
       ),
     );
   }
-}
+} 
+//悬浮按钮
 class FloatingActionButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   
-  //悬浮按钮
-  
+    //悬浮按钮
     final Widget _floatingActionButton = FloatingActionButton(
       onPressed: (){},
       child: Icon(Icons.add),
       elevation: 0.0,
-      backgroundColor: Colors.cyan[90],
-      shape: BeveledRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
-      ),
+      backgroundColor: Colors.red,
+      // shape: BeveledRectangleBorder(
+      //   borderRadius: BorderRadius.circular(30),
+      // ),
     );
 
      final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
@@ -43,8 +43,15 @@ class FloatingActionButtonDemo extends StatelessWidget {
         title: Text('FloatingActionButtonDemo'),
         elevation: 0.0,
       ),
-      // floatingActionButton: _floatingActionButton,
-      floatingActionButton: _floatingActionButtonExtended,
+      floatingActionButton: _floatingActionButton,
+      // floatingActionButton: _floatingActionButtonExtended,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 90,
+        ),
+        shape: CircularNotchedRectangle(),
+      ),
     );
   }
 }
