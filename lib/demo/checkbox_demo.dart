@@ -29,8 +29,8 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
               },
               title: Text('CheckBox Item A'),
               subtitle: Text('Description'),
-              secondary: Icon(Icons.bookmark),
-              selected: _checkoutBoxItemA,
+              secondary: Icon(Icons.bookmark),//左边标签
+              selected: _checkoutBoxItemA,//标签选中状态
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
