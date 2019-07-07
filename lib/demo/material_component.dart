@@ -1,5 +1,6 @@
 //按钮
 import 'package:flutter/material.dart';
+import 'package:flutter_pushui/demo/data_table_demo.dart';
 import './button_demo.dart';
 import './floating_action_button_demo.dart';
 import './popup_menu_button_demo.dart';
@@ -26,6 +27,7 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'DataTable',page: DataTableDemo()),          
           ListItem(title: 'Chip',page: ChipDemo()),          
           ListItem(title: 'ExpansionPanel',page: ExpansionPanelDemo()),          
           ListItem(title: 'SnackBar',page: SnackBarDemo()),          

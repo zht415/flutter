@@ -174,7 +174,6 @@ class _ChipDemoState extends State<ChipDemo> {
               'Banana',
               'Lemon',
             ];
-
             _selected = [];
             _choice = 'Lemon';
           });
