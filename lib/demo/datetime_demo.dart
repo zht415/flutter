@@ -13,8 +13,8 @@ class _DateTimeState extends State<DateTimeDemo> {
   //选择的时间
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay(hour: 9,minute: 30);
-  //日期选择期 XX年XX月XX日
-  Future<void> _selectDate() async{//会加到异步队列中
+  //日期选择期 XX年XX月XX日  
+  Future<void> _selectDate() async{//会加到异步队列中 或者前面加 Future<void>
     final DateTime date = await showDatePicker(
       context: context,
       initialDate: selectedDate,//初始日期
