@@ -1,4 +1,5 @@
 
+//底部向上弹起视图 之后自动消失
 import 'package:flutter/material.dart';
 
 class SnackBarDemo extends StatefulWidget {
