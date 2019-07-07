@@ -27,6 +27,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
            DataTable(
              sortColumnIndex: _sortColumnIndex,//按第几列进行排序
              sortAscending: _sortAscending,//升序排序
+            //  onSelectAll: (bool value){},//全选的状态
              columns: [
                DataColumn(
                  label: Container(
@@ -57,6 +58,14 @@ class _DataTableDemoState extends State<DataTableDemo> {
              ],
              rows: posts.map((post){
                return DataRow(
+                 selected: post.selected,
+                 onSelectChanged:(bool value){
+                   setState(() {
+                     if(post.selected != value){
+                       post.selected = value;
+                     }
+                   });
+                 },
                  cells: [
                    DataCell(Text(post.title)),
                    DataCell(Text(post.author)),
