@@ -11,7 +11,14 @@ class DateTimeDemo extends StatefulWidget {
 class _DateTimeState extends State<DateTimeDemo> {
   //选择的时间
   final DateTime selectedDate = DateTime.now();
-
+  _selectDate(){
+    showDatePicker(
+      context: context,
+      initialDate: selectedDate,//初始日期
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2100),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +35,7 @@ class _DateTimeState extends State<DateTimeDemo> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[ 
                 InkWell(
-                  onTap: (){},
+                  onTap: _selectDate,
                   child: Row(
                     children: <Widget>[
                       Text(DateFormat.yMd().format(selectedDate)),
