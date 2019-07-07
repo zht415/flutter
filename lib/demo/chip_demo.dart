@@ -8,6 +8,11 @@ class ChipDemo extends StatefulWidget {
 }
 
 class _ChipDemoState extends State<ChipDemo> {
+  List<String> _tags = [
+    'Apple',
+    'Banana',
+    'Lemon',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,17 +57,42 @@ class _ChipDemoState extends State<ChipDemo> {
                    onDeleted: (){},
                    deleteIcon: Icon(Icons.delete),
                    deleteIconColor: Colors.redAccent,
-                   deleteButtonTooltipMessage: 'Remove this tag',
+                   deleteButtonTooltipMessage: 'Remove this tag',//长按删除时会显示删除提示
                  ),
                  Divider(//分隔符
                   color: Colors.purple,
                   height: 2.0,
                   // indent: 32.0,//缩进
                  ),
+                 Wrap(
+                   spacing: 8.0,
+                   children: _tags.map((tag){
+                     return Chip(
+                       label: Text(tag),
+                       onDeleted: (){
+                         setState(() {
+                           _tags.remove(tag);
+                         });
+                       },
+                     );
+                   }).toList(),
+                 ),
               ],
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.restore),
+        onPressed: (){
+          setState(() {
+            _tags = [
+              'Apple',
+              'Banana',
+              'Lemon',
+            ];
+          });
+        },
       ),
     );
   }
