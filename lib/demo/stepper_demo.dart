@@ -8,6 +8,8 @@ class StepperDemo extends StatefulWidget {
 }
 
 class _StepperDemoState extends State<StepperDemo> {
+
+  int _currentStep = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,27 +27,43 @@ class _StepperDemoState extends State<StepperDemo> {
                 primaryColor: Colors.redAccent,
               ),
               child: Stepper(
+                currentStep: _currentStep,
+                onStepTapped: (int value){//点击事件
+                  setState(() {
+                    _currentStep = value;
+                  });
+                },
+                onStepContinue: (){//继续
+                  setState(() {
+                    _currentStep < 2 ? _currentStep +=1 : _currentStep = 0; 
+                  });
+                },
+                onStepCancel: (){//取消
+                  setState(() {
+                    _currentStep > 0 ? _currentStep -= 1 : _currentStep = 0;
+                  });
+                },
                 steps: [
                   Step(
                     title: Text('Login'),
                     subtitle: Text('Login first'),
                     content: Text(
                         'Exercitation reprehenderit cupidatat ipsum incididunt labore consectetur.'),
-                    isActive: true, //激活状态
+                    isActive: _currentStep == 0, //激活状态
                   ),
                   Step(
                     title: Text('Choose Plan'),
                     subtitle: Text('Choose your plan'),
                     content: Text(
                         'Exercitation reprehenderit cupidatat ipsum incididunt labore consectetur.'),
-                    isActive: true, //激活状态
+                    isActive: _currentStep == 1, //激活状态
                   ),
                   Step(
                     title: Text('Confirm payment'),
                     subtitle: Text('Confirm your payment method'),
                     content: Text(
                         'Exercitation reprehenderit cupidatat ipsum incididunt labore consectetur.'),
-                    isActive: true, //激活状态
+                    isActive: _currentStep == 2, //激活状态
                   ),
                 ],
               ),
