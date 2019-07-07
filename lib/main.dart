@@ -15,6 +15,7 @@ import './demo/navigator_demo.dart';
 import './demo/form_demo.dart';
 import './demo/material_component.dart';
 import './demo/data_table_demo.dart';
+import './demo/state/state_management_demo.dart';
 
 // void main(){
 //   runApp(App());
@@ -26,17 +27,19 @@ class App extends StatelessWidget{
  @override
   Widget build(BuildContext context) {
     
-    return MaterialApp(
-      debugShowCheckedModeBanner: false, //去掉右上角debug图标
-      // home: NavigatorDemo(), 
-      //或使用以下路由
-      initialRoute: '/mdc',//初始化一个路由
-      routes: {
-        '/':(context)=>NavigatorDemo(),
-        '/about':(context)=>Page(title: 'About'),
-        '/form':(context)=>FormDemo(),
-        '/mdc':(context)=>MaterialComponents(),
-      }, 
+    var routes2 = {
+            '/':(context)=>NavigatorDemo(),
+            '/about':(context)=>Page(title: 'About'),
+            '/form':(context)=>FormDemo(),
+            '/mdc':(context)=>MaterialComponents(),
+            '/state-management':(context)=>StateManagementDemo(),
+          };
+        return MaterialApp(
+          debugShowCheckedModeBanner: false, //去掉右上角debug图标
+          // home: NavigatorDemo(), 
+          //或使用以下路由
+          initialRoute: '/state-management',//初始化一个路由
+          routes: routes2, 
       // home: Home(),
       // home: SliverDemo(),
       theme: ThemeData( //设置主题色
