@@ -12,6 +12,7 @@ class DateTimeDemo extends StatefulWidget {
 class _DateTimeState extends State<DateTimeDemo> {
   //选择的时间
   DateTime selectedDate = DateTime.now();
+  TimeOfDay selectedTime = TimeOfDay(hour: 9,minute: 30);
   //日期选择窗口
   _selectDate() async{
     final DateTime date = await showDatePicker(
@@ -23,6 +24,16 @@ class _DateTimeState extends State<DateTimeDemo> {
     if(date == null) return;
     setState(() {
       selectedDate = date;
+    });
+  }
+  _selectTime() async{
+    final TimeOfDay time = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if(time == null)return;
+    setState(() {
+      selectedTime = time;
     });
   }
   @override
@@ -46,6 +57,15 @@ class _DateTimeState extends State<DateTimeDemo> {
                     children: <Widget>[
                       // Text(DateFormat.yMd().format(selectedDate)),
                       Text(DateFormat.yMMMMd().format(selectedDate)),
+                      Icon(Icons.arrow_drop_down),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: _selectTime,
+                  child: Row(
+                    children: <Widget>[
+                      Text(selectedTime.format(context)),
                       Icon(Icons.arrow_drop_down),
                     ],
                   ),
