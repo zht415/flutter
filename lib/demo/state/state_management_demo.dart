@@ -8,7 +8,14 @@ class StateManagementDemo extends StatefulWidget { //状态不再变化
 }
 
 class _StateManagementDemoState extends State<StateManagementDemo>{
+  
   int _count = 0;
+  void _increaseCount(){
+    setState(() {
+      _count += 1;
+    });
+    print(_count);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +23,7 @@ class _StateManagementDemoState extends State<StateManagementDemo>{
         title: Text('StateManagementDemo'),
         elevation: 0.0,
       ),
-      body: Counter(_count),
+      body: Counter(_count,_increaseCount),
       // body: Center(
       //   child: Chip(
       //     label: Text('$count'),
@@ -24,24 +31,29 @@ class _StateManagementDemoState extends State<StateManagementDemo>{
       // ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){
-          setState(() {
-            _count += 1;
-          });
-           print(_count);
-        },
+        onPressed: _increaseCount,
+        // onPressed: (){
+        //   setState(() {
+        //     _count += 1;
+        //   });
+        //    print(_count);
+        // },
       ),
     );
   }
 }
 class Counter extends StatelessWidget {
   final int count;
-  Counter(this.count);//构造函数
+  final VoidCallback increaseCount;//回调函数，
+  
+  Counter(this.count,this.increaseCount);//构造函数
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Chip(
+      child: ActionChip(
         label: Text('$count'),
+        onPressed: increaseCount,
       ),
     );
   }
