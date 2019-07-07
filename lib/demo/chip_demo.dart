@@ -23,7 +23,7 @@ class _ChipDemoState extends State<ChipDemo> {
             Wrap( //如果超过屏幕最大值需使用Wrap，不超过使用Row，需同时使用mainAxisAlignment
               // mainAxisAlignment: MainAxisAlignment.center,
               spacing: 8.0,//设置部件之间的间隔
-              // runSpacing: 8.0,//设置行与行之间的间隔
+              runSpacing: 8.0,//设置行与行之间的间隔
               children: <Widget>[
                  Chip(
                    label: Text('Lift'),
@@ -46,6 +46,11 @@ class _ChipDemoState extends State<ChipDemo> {
                        'https://resources.ninghao.net/images/wanghao.jpg',
                      ),
                    ),
+                 ),
+                 Divider(//分隔符
+                  color: Colors.purple,
+                  height: 2.0,
+                  // indent: 32.0,//缩进
                  ),
               ],
             ),
