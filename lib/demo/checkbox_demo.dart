@@ -38,7 +38,7 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
                 // Checkbox(
                 //   value: _checkoutBoxItemA,
                 //   onChanged:(value){
-                //     setState(() {
+                 //     setState(() {
                 //       _checkoutBoxItemA = value;
                 //     });
                 //   },
