@@ -1,4 +1,6 @@
 // Shift  +  Alt  + F     实现代码的对齐；
+// flutter upgrade 升级flutterSDK 
+// flutter clean ：会删除掉'build/'里的东西
 import 'package:flutter/material.dart';
 import './model/post.dart';
 import './demo/listView_demo.dart';
