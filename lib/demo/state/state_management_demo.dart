@@ -16,6 +16,7 @@ class _StateManagementDemoState extends State<StateManagementDemo>{
     });
     print(_count);
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _StateManagementDemoState extends State<StateManagementDemo>{
         title: Text('StateManagementDemo'),
         elevation: 0.0,
       ),
-      body: Counter(_count,_increaseCount),
+      body: CounterWrapper(_count,_increaseCount),
       // body: Center(
       //   child: Chip(
       //     label: Text('$count'),
@@ -42,6 +43,20 @@ class _StateManagementDemoState extends State<StateManagementDemo>{
     );
   }
 }
+class  CounterWrapper extends StatelessWidget {
+
+  final int count;
+  final VoidCallback increaseCount;//回调函数，
+
+  CounterWrapper(this.count,this.increaseCount);//构造函数
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Counter(count, increaseCount),
+    );
+  }
+}
 class Counter extends StatelessWidget {
   final int count;
   final VoidCallback increaseCount;//回调函数，
@@ -50,11 +65,9 @@ class Counter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ActionChip(
-        label: Text('$count'),
-        onPressed: increaseCount,
-      ),
+    return ActionChip(
+      label: Text('$count'),
+      onPressed: increaseCount,
     );
   }
 }
