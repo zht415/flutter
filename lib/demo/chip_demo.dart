@@ -47,6 +47,13 @@ class _ChipDemoState extends State<ChipDemo> {
                      ),
                    ),
                  ),
+                 Chip(
+                   label: Text('City'),//带删除按钮的标签
+                   onDeleted: (){},
+                   deleteIcon: Icon(Icons.delete),
+                   deleteIconColor: Colors.redAccent,
+                   deleteButtonTooltipMessage: 'Remove this tag',
+                 ),
                  Divider(//分隔符
                   color: Colors.purple,
                   height: 2.0,
