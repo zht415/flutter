@@ -20,18 +20,18 @@ class _ChipDemoState extends State<ChipDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Wrap( //如果超过屏幕最大值需使用Wrap，不超过使用Row，需同时使用mainAxisAlignment
+              // mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 8.0,//设置部件之间的间隔
+              // runSpacing: 8.0,//设置行与行之间的间隔
               children: <Widget>[
                  Chip(
                    label: Text('Lift'),
                  ),
-                 SizedBox(width: 8.0),
                  Chip(
                    label: Text('Sunset'),
                    backgroundColor:  Colors.orange,
                  ),
-                 SizedBox(width: 8.0),
                  Chip(
                    label: Text('Pushui'),
                    avatar: CircleAvatar(
@@ -39,16 +39,14 @@ class _ChipDemoState extends State<ChipDemo> {
                      child: Text('朴'),
                    ),
                  ),
-                 SizedBox(width: 8.0),
                  Chip(
-                   label: Text('朴水'),
+                   label: Text('朴水，你好啊~，我很好'),
                    avatar: CircleAvatar(
                      backgroundImage: NetworkImage(
                        'https://resources.ninghao.net/images/wanghao.jpg',
                      ),
                    ),
                  ),
-                  
               ],
             ),
           ],
