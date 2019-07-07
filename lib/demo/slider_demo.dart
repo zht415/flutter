@@ -1,4 +1,4 @@
-//Slider
+//Slider  滑动bar
 
 import 'package:flutter/material.dart';
 
