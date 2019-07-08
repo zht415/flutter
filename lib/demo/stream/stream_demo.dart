@@ -25,17 +25,23 @@ class StreamDemoHome extends StatefulWidget {
 class _StreamDemoHomeState extends State<StreamDemoHome> {
 
   StreamSubscription _streamDemoSubscription;
-
+  StreamController<String> _streamDemo;
+  
+  @override
+  void dispose() {
+    _streamDemo.close();
+    super.dispose();
+  }
   @override
   void initState() {
     super.initState();
     
     print('Create a stream');
-    Stream<String> _streamDemo = Stream.fromFuture(fetchData());
-    
+    // Stream<String> _streamDemo = Stream.fromFuture(fetchData());
+    _streamDemo = StreamController<String>();
     print('Start listening on a stream');
     _streamDemoSubscription =
-     _streamDemo.listen(onData,onError: onError,onDone: onDone);//给stream添加订阅
+     _streamDemo.stream.listen(onData,onError: onError,onDone: onDone);//给stream添加订阅
     
     print('Initialize completed');
   }
@@ -52,6 +58,11 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     print('Done!');
   }
 
+  void _addDataStream() async{
+     print('Add data to Stream.');
+     String data = await fetchData();
+     _streamDemo.add(data);
+  }
   void _pauseStream(){
     print('Pause Subscription');
     _streamDemoSubscription.pause();
@@ -65,7 +76,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     _streamDemoSubscription.cancel();
   }
   Future<String> fetchData() async{
-    await Future.delayed(Duration(seconds: 5));//延迟3s 3s后出现hello
+    await Future.delayed(Duration(seconds: 10));//延迟3s 3s后出现hello
     // throw 'Something Happened';//模拟异常
     return 'hello~';
   }
@@ -76,6 +87,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            FlatButton(
+              child: Text('Add'),
+              onPressed: _addDataStream,
+            ),
             FlatButton(
               child: Text('Pause'),
               onPressed: _pauseStream,
