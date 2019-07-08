@@ -1,4 +1,4 @@
-//状态管理
+//状态管理  这个方法有点多 以一种以准
 
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
