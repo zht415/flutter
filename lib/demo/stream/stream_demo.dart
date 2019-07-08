@@ -1,5 +1,7 @@
 // Stream
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class SteamDemo extends StatelessWidget {
@@ -22,6 +24,8 @@ class StreamDemoHome extends StatefulWidget {
 
 class _StreamDemoHomeState extends State<StreamDemoHome> {
 
+  StreamSubscription _streamDemoSubscription;
+
   @override
   void initState() {
     super.initState();
@@ -30,7 +34,8 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     Stream<String> _streamDemo = Stream.fromFuture(fetchData());
     
     print('Start listening on a stream');
-    _streamDemo.listen(onData,onError: onError,onDone: onDone);//给stream添加订阅
+    _streamDemoSubscription =
+     _streamDemo.listen(onData,onError: onError,onDone: onDone);//给stream添加订阅
     
     print('Initialize completed');
   }
@@ -47,15 +52,45 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     print('Done!');
   }
 
+  void _pauseStream(){
+    print('Pause Subscription');
+    _streamDemoSubscription.pause();
+  }
+  void _resumeStream(){
+    print('Resume Subscription');
+    _streamDemoSubscription.resume();
+  }
+  void _cancelStream(){
+    print('Cancel Subscription');
+    _streamDemoSubscription.cancel();
+  }
   Future<String> fetchData() async{
-    await Future.delayed(Duration(seconds: 3));//延迟3s 3s后出现hello
-    throw 'Something Happened';
-    // return 'hello~';
+    await Future.delayed(Duration(seconds: 5));//延迟3s 3s后出现hello
+    // throw 'Something Happened';//模拟异常
+    return 'hello~';
   }
   @override
   Widget build(BuildContext context) {
     return Container(
-      
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            FlatButton(
+              child: Text('Pause'),
+              onPressed: _pauseStream,
+            ),
+            FlatButton(
+              child: Text('Resume'),
+              onPressed: _resumeStream,
+            ),
+            FlatButton(
+              child: Text('Cancel'),
+              onPressed: _cancelStream,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
