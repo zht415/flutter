@@ -1,5 +1,5 @@
 // Shift  +  Alt  + F     实现代码的对齐；
-// flutter upgrade 升级flutterSDK 
+// flutter upgrade 升级flutterSDK
 // flutter clean ：会删除掉'build/'里的东西
 import 'package:flutter/material.dart';
 import './model/post.dart';
@@ -16,50 +16,51 @@ import './demo/form_demo.dart';
 import './demo/material_component.dart';
 import './demo/data_table_demo.dart';
 import './demo/state/state_management_demo.dart';
+import './demo/stream/stream_demo.dart';
 
 // void main(){
 //   runApp(App());
 // }
 // 或使用以下方法
-void main()=> runApp(App());
+void main() => runApp(App());
 
-class App extends StatelessWidget{
- @override
+class App extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-    
     var routes2 = {
-            '/':(context)=>NavigatorDemo(),
-            '/about':(context)=>Page(title: 'About'),
-            '/form':(context)=>FormDemo(),
-            '/mdc':(context)=>MaterialComponents(),
-            '/state-management':(context)=>StateManagementDemo(),
-          };
-        return MaterialApp(
-          debugShowCheckedModeBanner: false, //去掉右上角debug图标
-          // home: NavigatorDemo(), 
-          //或使用以下路由
-          initialRoute: '/state-management',//初始化一个路由
-          routes: routes2, 
+      '/': (context) => NavigatorDemo(),
+      '/about': (context) => Page(title: 'About'),
+      '/form': (context) => FormDemo(),
+      '/mdc': (context) => MaterialComponents(),
+      '/state-management': (context) => StateManagementDemo(),
+      '/stream': (context) => SteamDemo(),
+    };
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, //去掉右上角debug图标
+      // home: NavigatorDemo(),
+      //或使用以下路由
+      initialRoute: '/stream', //初始化一个路由
+      routes: routes2,
       // home: Home(),
       // home: SliverDemo(),
-      theme: ThemeData( //设置主题色
+      theme: ThemeData(
+        //设置主题色
         primarySwatch: Colors.pink,
-        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),//选中时高亮颜色
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5), //选中时高亮颜色
         splashColor: Colors.white70,
-        accentColor: Color.fromRGBO(14, 14, 255, 1.0), 
+        accentColor: Color.fromRGBO(14, 14, 255, 1.0),
       ),
     );
   }
 }
 
-class Home extends StatelessWidget{
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
-    return  DefaultTabController(
+    return DefaultTabController(
       length: 5,
-      child: Scaffold( //顶部工具栏、标签栏
+      child: Scaffold(
+        //顶部工具栏、标签栏
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
           // leading: IconButton( //顶部左图标（类似于leftBarButton）
@@ -72,16 +73,18 @@ class Home extends StatelessWidget{
             IconButton(
               icon: Icon(Icons.search),
               tooltip: 'Search',
-              onPressed: ()=>debugPrint('Search button is Pressed'),
+              onPressed: () => debugPrint('Search button is Pressed'),
             )
           ],
           elevation: 1.0,
-          bottom: TabBar(//设置tabBar
-            unselectedLabelColor: Colors.black38,//未选中是颜色
-            indicatorColor: Colors.blue,//选择时底部的线
+          bottom: TabBar(
+            //设置tabBar
+            unselectedLabelColor: Colors.black38, //未选中是颜色
+            indicatorColor: Colors.blue, //选择时底部的线
             indicatorSize: TabBarIndicatorSize.label,
             indicatorWeight: 2.0,
-            tabs: <Widget>[ //
+            tabs: <Widget>[
+              //
               Tab(icon: Icon(Icons.local_florist)),
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.directions_bike)),
@@ -103,13 +106,12 @@ class Home extends StatelessWidget{
             ViewDemo(), //视图
             SliverDemo(),
           ],
-        ),//ListViewDemo(),
+        ), //ListViewDemo(),
         drawer: DrawerDemo(),
         //底部导航栏
         bottomNavigationBar: BottomNavigationBarDemo(),
         // endDrawer: Text('This is right drawer'),//右边抽屉
       ),
-    ); 
+    );
   }
 }
-

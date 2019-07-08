@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//StatefulWidget
 class WidgetDemo extends StatefulWidget {
   @override
   _WidgetDemoState createState() => _WidgetDemoState();
@@ -26,6 +27,19 @@ class _WidgetDemoState extends State<WidgetDemo> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+class WidgetStatelessDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('WidgetStatelessDemo'),
+        elevation: 0.0,
       ),
     );
   }
