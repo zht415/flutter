@@ -26,8 +26,9 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
 
   StreamSubscription _streamDemoSubscription;
   StreamController<String> _streamDemo;
-  
-  @override
+  StreamSink _sinkDemo;
+   
+  @override  
   void dispose() {
     _streamDemo.close();
     super.dispose();
@@ -35,10 +36,12 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   @override
   void initState() {
     super.initState();
-    
+
     print('Create a stream');
     // Stream<String> _streamDemo = Stream.fromFuture(fetchData());
     _streamDemo = StreamController<String>();
+    _sinkDemo = _streamDemo.sink;
+
     print('Start listening on a stream');
     _streamDemoSubscription =
      _streamDemo.stream.listen(onData,onError: onError,onDone: onDone);//给stream添加订阅
@@ -61,7 +64,8 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   void _addDataStream() async{
      print('Add data to Stream.');
      String data = await fetchData();
-     _streamDemo.add(data);
+    //  _streamDemo.add(data);
+    _sinkDemo.add(data);
   }
   void _pauseStream(){
     print('Pause Subscription');
@@ -76,7 +80,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     _streamDemoSubscription.cancel();
   }
   Future<String> fetchData() async{
-    await Future.delayed(Duration(seconds: 10));//延迟3s 3s后出现hello
+    await Future.delayed(Duration(seconds: 6));//延迟3s 3s后出现hello
     // throw 'Something Happened';//模拟异常
     return 'hello~';
   }
