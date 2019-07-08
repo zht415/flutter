@@ -27,7 +27,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   StreamSubscription _streamDemoSubscription;
   StreamController<String> _streamDemo;
   StreamSink _sinkDemo;
-   
+  String _data = '.';
   @override  
   void dispose() {
     _streamDemo.close();
@@ -51,7 +51,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   }
   //有数据时
   void onData(String data){
-    print('******* $data');
+    setState(() {
+      _data = data;
+    });
+    print('onData $data');
   }
   void onDataTwo(String data){
     print('onDataTwo $data');
@@ -92,24 +95,30 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FlatButton(
-              child: Text('Add'),
-              onPressed: _addDataStream,
-            ),
-            FlatButton(
-              child: Text('Pause'),
-              onPressed: _pauseStream,
-            ),
-            FlatButton(
-              child: Text('Resume'),
-              onPressed: _resumeStream,
-            ),
-            FlatButton(
-              child: Text('Cancel'),
-              onPressed: _cancelStream,
+            Text(_data),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  child: Text('Add'),
+                  onPressed: _addDataStream,
+                ),
+                FlatButton(
+                  child: Text('Pause'),
+                  onPressed: _pauseStream,
+                ),
+                FlatButton(
+                  child: Text('Resume'),
+                  onPressed: _resumeStream,
+                ),
+                FlatButton(
+                  child: Text('Cancel'),
+                  onPressed: _cancelStream,
+                ),
+              ],
             ),
           ],
         ),
