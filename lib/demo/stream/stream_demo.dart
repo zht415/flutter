@@ -87,7 +87,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     _streamDemoSubscription.cancel();
   }
   Future<String> fetchData() async{
-    await Future.delayed(Duration(seconds: 6));//延迟3s 3s后出现hello
+    await Future.delayed(Duration(seconds: 5));//延迟3s 3s后出现hello
     // throw 'Something Happened';//模拟异常
     return 'hello~';
   }
@@ -98,7 +98,13 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(_data),
+            // Text(_data),
+            StreamBuilder(
+              stream: _streamDemo.stream,
+              builder: (context,snapshot){
+                return Text('${snapshot.data}');
+              },
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
