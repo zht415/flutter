@@ -37,7 +37,8 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
       // Observable.periodic(Duration(seconds:3),(x)=>x.toString());
     // _observable.listen(print);
 
-    PublishSubject<String> _subject = PublishSubject<String>();
+    // PublishSubject<String> _subject = PublishSubject<String>();
+    BehaviorSubject<String> _subject = BehaviorSubject<String>();
     _subject.listen((data)=>print('listen 1:$data'));
     _subject.add('pushui');
     _subject.listen((data)=>print('listen 2:${data.toUpperCase()}'));
