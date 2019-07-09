@@ -17,6 +17,7 @@ import './demo/material_component.dart';
 import './demo/data_table_demo.dart';
 import './demo/state/state_management_demo.dart';
 import './demo/stream/stream_demo.dart';
+import './demo/rxdart/rxdart_demo.dart';
 
 // void main(){
 //   runApp(App());
@@ -35,12 +36,13 @@ class App extends StatelessWidget {
       '/mdc': (context) => MaterialComponents(),
       '/state-management': (context) => StateManagementDemo(),
       '/stream': (context) => SteamDemo(),
+      '/rxdart': (context) => RxDartDemo(),
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
       // home: NavigatorDemo(),
       //或使用以下路由
-      initialRoute: '/stream', //初始化一个路由
+      initialRoute: '/rxdart', //初始化一个路由
       routes: routes2,
       // home: Home(),
       // home: SliverDemo(),

@@ -101,6 +101,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
             // Text(_data),
             StreamBuilder(
               stream: _streamDemo.stream,
+              initialData: '...',
               builder: (context,snapshot){
                 return Text('${snapshot.data}');
               },
