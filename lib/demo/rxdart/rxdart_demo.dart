@@ -1,5 +1,9 @@
 
+//响应式编程
 import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
+import 'dart:async';
+
 
 
 class RxDartDemo extends StatelessWidget {
@@ -21,6 +25,12 @@ class RxDartDemoHome extends StatefulWidget {
 }
 
 class _RxDartDemoHomeState extends State<RxDartDemoHome> {
+ 
+  @override
+  void initState() {
+    Observable<String> _observable = Observable(Stream.fromIterable(['Hello','您好']));
+    _observable.listen(print);
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
