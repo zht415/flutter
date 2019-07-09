@@ -34,7 +34,8 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     _textFieldSubject = PublishSubject<String>();
     _textFieldSubject
     //  .map((item)=>'item:$item')
-     .where((item)=>item.length>9)//大于9时才输出
+    //  .where((item)=>item.length>9)//大于9时才输出
+     .debounce(Duration(milliseconds: 500))
      .listen((data)=>print(data));
     // _textFieldSubject.listen((data)=>print(data));
     
