@@ -26,8 +26,14 @@ class RxDartDemoHome extends StatefulWidget {
 
 class _RxDartDemoHomeState extends State<RxDartDemoHome> {
  
+ PublishSubject<String> _textFieldSubject;
+
   @override
   void initState() {
+
+    _textFieldSubject = PublishSubject<String>();
+    _textFieldSubject.listen((data)=>print(data));
+    // _textFieldSubject.close();
     // Observable<String> _observable = 
       //  Observable(Stream.fromIterable(['Hello','您好']));
       // Observable.fromFuture(Future.value('hello ~'));
@@ -39,18 +45,37 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
 
     // PublishSubject<String> _subject = PublishSubject<String>();
     // BehaviorSubject<String> _subject = BehaviorSubject<String>();
-    ReplaySubject<String> _subject = ReplaySubject<String>();
-    _subject.listen((data)=>print('listen 1:$data'));
-    _subject.add('pushui');
-    _subject.listen((data)=>print('listen 2:${data.toUpperCase()}'));
-    _subject.add('add----');
-    _subject.close();
+    ReplaySubject<String> _subject = ReplaySubject<String>(maxSize: 2);//最大接收数据的个数
+    // _subject.listen((data)=>print('listen 1:$data'));
+    // _subject.add('pushui');
+    // _subject.listen((data)=>print('listen 2:${data.toUpperCase()}'));
+    // _subject.add('add----');
+    // _subject.close();
   } 
 
+@override
+void dispose() { 
+  super.dispose();
+  _textFieldSubject.close();
+}
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Theme(
+      data: Theme.of(context).copyWith(
+        primaryColor: Colors.black,
+      ),
+      child:  TextField(
+        onChanged: (value){
+          _textFieldSubject.add('input:$value');
+        },
+        onSubmitted: (value){
+          _textFieldSubject.add('submit:$value');
+        },
+        decoration: InputDecoration(
+          labelText: 'Text',
+          filled: true,
+        ),
+      ),
     );
   }
 }
