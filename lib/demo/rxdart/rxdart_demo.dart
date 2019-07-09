@@ -33,9 +33,11 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
 
     _textFieldSubject = PublishSubject<String>();
     _textFieldSubject
-     .map((item)=>'item:$item')
+    //  .map((item)=>'item:$item')
+     .where((item)=>item.length>9)//大于9时才输出
      .listen((data)=>print(data));
     // _textFieldSubject.listen((data)=>print(data));
+    
     // _textFieldSubject.close();
     // Observable<String> _observable = 
       //  Observable(Stream.fromIterable(['Hello','您好']));
