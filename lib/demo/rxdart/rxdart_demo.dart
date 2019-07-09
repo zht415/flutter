@@ -28,9 +28,16 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
  
   @override
   void initState() {
-    Observable<String> _observable = Observable(Stream.fromIterable(['Hello','您好']));
+    Observable<String> _observable = 
+      //  Observable(Stream.fromIterable(['Hello','您好']));
+      // Observable.fromFuture(Future.value('hello ~'));
+      // Observable.fromIterable(['hello','朴水']);
+      // Observable.just('pushui~');
+      //每隔3s就重复一次
+      Observable.periodic(Duration(seconds:3),(x)=>x.toString());
     _observable.listen(print);
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
