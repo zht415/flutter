@@ -32,7 +32,10 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
   void initState() {
 
     _textFieldSubject = PublishSubject<String>();
-    _textFieldSubject.listen((data)=>print(data));
+    _textFieldSubject
+     .map((item)=>'item:$item')
+     .listen((data)=>print(data));
+    // _textFieldSubject.listen((data)=>print(data));
     // _textFieldSubject.close();
     // Observable<String> _observable = 
       //  Observable(Stream.fromIterable(['Hello','您好']));
