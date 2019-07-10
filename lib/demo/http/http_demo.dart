@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
+import 'dart:convert';
 
 class HttpDemo extends StatelessWidget {
   @override
@@ -25,7 +26,21 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   
   @override
   void initState() {
-    fetchPost();
+    // fetchPost();
+    final post = {
+      'title':'hello',
+      'description':'nice to meet you.',
+    };
+    print(post['title']);
+    print(post['description']);
+
+    final postJson = json.encode(post);
+    print(postJson);
+
+    final postJsonConverted = json.decode(postJson);
+    print(postJsonConverted['title']);
+    print(postJsonConverted['description']);
+    print(postJsonConverted is Map);
   }
   fetchPost() async{
     final response = 
