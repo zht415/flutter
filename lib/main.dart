@@ -19,6 +19,7 @@ import './demo/state/state_management_demo.dart';
 import './demo/stream/stream_demo.dart';
 import './demo/rxdart/rxdart_demo.dart';
 import './demo/bloc/bloc_demo.dart';
+import './demo/http/http_demo.dart';
 
 // void main(){
 //   runApp(App());
@@ -38,13 +39,14 @@ class App extends StatelessWidget {
       '/state-management': (context) => StateManagementDemo(),
       '/stream': (context) => SteamDemo(),
       '/rxdart': (context) => RxDartDemo(),
-      '/bloc':(context)=>BlocDemo(),
+      '/bloc':(context) => BlocDemo(),
+      '/http':(context) => HttpDemo(),
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉右上角debug图标
       // home: NavigatorDemo(),
       //或使用以下路由
-      initialRoute: '/bloc', //初始化一个路由
+      initialRoute: '/http', //初始化一个路由
       routes: routes2,
       // home: Home(),
       // home: SliverDemo(),
